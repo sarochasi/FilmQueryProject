@@ -10,6 +10,7 @@ public class Film {
 	private String description;
 	private Integer releaseYear; //used Integer because the data is nullable
 	private int languageId;
+	private String language;
 	private int rentalDuration;
 	private double rentalRate;
 	private Integer length;
@@ -19,13 +20,13 @@ public class Film {
 	private List<Actor> actors = new ArrayList<>();
 	
 	
-	
 	public Film() {
 		super();
 	}
 
 	public Film(int id, String title, String description, Integer releaseYear, int languageId, int rentalDuration,
-			double rentalRate, Integer length, double replacementCost, String rating, String specialFeatures) {
+			double rentalRate, Integer length, double replacementCost, String rating, String specialFeatures,
+			List<Actor> actors, String language) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -38,19 +39,30 @@ public class Film {
 		this.replacementCost = replacementCost;
 		this.rating = rating;
 		this.specialFeatures = specialFeatures;
+		this.actors = actors;
+		this.language = language;
 	}
-	
+
+	public String getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(String language) {
+		this.language = language;
+	}
+
 	
 
-	public Film(int id, String title, String description, Integer releaseYear, int languageId, int rentalDuration,
-			double rentalRate, Integer length, double replacementCost, String rating, String specialFeatures,
-			List<Actor> actors) {
+	public Film(int id, String title, String description, Integer releaseYear, int languageId, String language,
+			int rentalDuration, double rentalRate, Integer length, double replacementCost, String rating,
+			String specialFeatures, List<Actor> actors) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.description = description;
 		this.releaseYear = releaseYear;
 		this.languageId = languageId;
+		this.language = language;
 		this.rentalDuration = rentalDuration;
 		this.rentalRate = rentalRate;
 		this.length = length;
@@ -161,9 +173,9 @@ public class Film {
 	@Override
 	public String toString() {
 		return "Film [id=" + id + ", title=" + title + ", description=" + description + ", releaseYear=" + releaseYear
-				+ ", languageId=" + languageId + ", rentalDuration=" + rentalDuration + ", rentalRate=" + rentalRate
-				+ ", length=" + length + ", replacementCost=" + replacementCost + ", rating=" + rating
-				+ ", specialFeatures=" + specialFeatures + ", actors=" + actors + "]";
+				+ ", languageId=" + languageId + ", language=" + language + ", rentalDuration=" + rentalDuration
+				+ ", rentalRate=" + rentalRate + ", length=" + length + ", replacementCost=" + replacementCost
+				+ ", rating=" + rating + ", specialFeatures=" + specialFeatures + ", actors=" + actors + "]";
 	}
 
 	@Override
