@@ -45,8 +45,13 @@ public class FilmQueryApp {
 //	  List<Actor> filmList = db.findActorsByFilmId(i);
 //	  System.out.println(filmList);
 	  
-	  List<Film> actorList = db.findFilmsByActorId(i);
-	  System.out.println(actorList);
+	  //do - while loop
+	  //print menu
+	  //Get user choice
+	  //call and get method to get data
+	  //print it out nicely
+	  //Display results; if film not found, say so
+	  
   }
 
 }
