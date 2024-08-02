@@ -96,7 +96,7 @@ public class FilmQueryApp {
 	 public void printFilm(Film film) {
 		 
 		 System.out.println("===========================================");
-		 System.out.println("Film ID\t: " + film.getId());
+		 System.out.println("Film ID\t\t: " + film.getId());
 		 System.out.println("Title\t\t: " + film.getTitle());
 		 System.out.println("Year\t\t: " + film.getReleaseYear());
 		 System.out.println("Rating\t\t: " + film.getRating());

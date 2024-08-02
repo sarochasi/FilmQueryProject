@@ -81,6 +81,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 //
 //	}
 
+	@Override
 	public Film findFilmByKeyword(String keyword) {
 		Film film = null;
 		
@@ -91,12 +92,12 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			" JOIN language ON film.language_id = language.id WHERE title LIKE ? OR description LIKE ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			keyword = "%" + keyword + "%";
+			stmt.setString(1, keyword);
 			stmt.setString(2, keyword);
-			stmt.setString(3, keyword);
 			ResultSet filmResult = stmt.executeQuery();
 			if (filmResult.next()) {
 				film = new Film(); // Create the object
-				// Here is our mapping of query columns to our object fields:
+
 				film.setId(filmResult.getInt(1));
 				film.setTitle(filmResult.getString(2));
 				film.setDescription(filmResult.getString(3));
@@ -126,6 +127,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		
 	}
 
+	
 	@Override
 	public Actor findActorById(int actorId) {
 		Actor actor = null;
@@ -142,7 +144,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				actor.setId(actorResult.getInt(1));
 				actor.setFirstName(actorResult.getString(2));
 				actor.setLastName(actorResult.getString(3));
-
+				
 			}
 			stmt.close();
 			conn.close();
