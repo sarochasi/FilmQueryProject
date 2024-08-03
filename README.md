@@ -26,4 +26,5 @@ This command-line application allows users to retrieve and display film data fro
 * SQL Queries: Gained proficiency in writing SQL queries to perform various operation on the database.
 * JDBC: Learned how to integrate Java applications with a MySQL database using JDBC.
 * Object-Oriented Programming: Encapsulated JDBC code within specific classes to separate concerns and promote modularity.
+* Interface Implementation: Designed interfaces to define contracts for database operations, promoting a clean and extensible architecture.
 
