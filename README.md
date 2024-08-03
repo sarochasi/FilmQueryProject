@@ -8,7 +8,7 @@ This command-line application allows users to retrieve and display film data fro
 
 * Main Menu: The user is presented with a menu that allows them to look up a film by its ID, by a search keyword, or exit the application.
 * Film Lookup by ID: The user is prompted to enter a film ID. The film's details is displayed. If the film ID does not exist in the database, a message is displayed indicating that the film was not found.
-# Film Lookup by Keyword: The user is prompted to enter a search keyword. If films match the keyword, a lists of films is display with its details. If the film ID does not exist in the database, a message is displayed indicating that the film was not found.
+* Film Lookup by Keyword: The user is prompted to enter a search keyword. If films match the keyword, a lists of films is display with its details. If the film ID does not exist in the database, a message is displayed indicating that the film was not found.
 
 ### Technologies Used
 
