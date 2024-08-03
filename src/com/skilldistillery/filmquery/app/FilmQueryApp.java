@@ -15,16 +15,7 @@ public class FilmQueryApp {
 
 	public static void main(String[] args) {
 		FilmQueryApp app = new FilmQueryApp();
-//		app.test();
 		app.launch();
-	}
-
-	private void test() {
-//		Film film = db.findFilmById(1);
-//		System.out.println(film);
-		List<Actor> actors = db.findActorsByFilmId(1);
-		printActorList(actors);
-
 	}
 
 	private void launch() {
