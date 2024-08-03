@@ -1,5 +1,6 @@
 package com.skilldistillery.filmquery.app;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -59,13 +60,16 @@ public class FilmQueryApp {
 				System.out.println("Enter the keyword: ");
 				String keyword = input.next();
 				
-				Film filmByKeyword = db.findFilmByKeyword(keyword);
+				List<Film> filmByKeyword = db.findFilmByKeyword(keyword);
+				
+				List<Film> filmList = new ArrayList<>();
+				
 				if(filmByKeyword == null) {
 					System.out.println();
 					System.out.println("....FILM IS NOT FOUND....\n");
-				}else {
-					
-					printFilm(filmByKeyword);
+				}
+				else {
+					printFilmList(filmByKeyword);
 				}
 				
 				break;
@@ -80,7 +84,21 @@ public class FilmQueryApp {
 		}
 	}
 	 
-	 public void printFilm(Film film) {
+	 private void printFilmList(List<Film> filmByKeyword) {
+		 
+		 for(Film film: filmByKeyword) {
+		 System.out.println("Film ID\t\t: " + film.getId());
+		 System.out.println("Title\t\t: " + film.getTitle());
+		 System.out.println("Year\t\t: " + film.getReleaseYear());
+		 System.out.println("Rating\t\t: " + film.getRating());
+		 System.out.println("Description\t: " + film.getDescription());		 
+		 System.out.println("Language\t\t: " + film.getLanguage());
+		 System.out.println();
+		 }
+		 
+	}
+
+	public void printFilm(Film film) {
 		 
 		 System.out.println("===========================================");
 		 System.out.println("Film ID\t\t: " + film.getId());

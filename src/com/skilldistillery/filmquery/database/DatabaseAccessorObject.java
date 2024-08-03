@@ -59,8 +59,9 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 
 
 	@Override
-	public Film findFilmByKeyword(String keyword) {
+	public List<Film> findFilmByKeyword(String keyword) {
 		Film film = null;
+		List<Film> films = new ArrayList<>();
 		
 		try {
 			Connection conn = DriverManager.getConnection(URL, user, pass);
@@ -88,6 +89,8 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				film.setRating(filmResult.getString(11));
 				film.setSpecialFeatures(filmResult.getString(12));
 				film.setActors(findActorsByFilmId(film.getId()));
+				
+				films.add(film);
 
 			}
 			stmt.close();
@@ -98,7 +101,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			e.printStackTrace();
 		}
 		
-		return film;
+		return films;
 		
 	}
 
