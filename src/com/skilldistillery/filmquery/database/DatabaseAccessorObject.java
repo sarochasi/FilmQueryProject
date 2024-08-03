@@ -57,29 +57,6 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		return film;
 	}
 
-//	public Film findFilmByKeyword(String keyword) {
-//		Film film = null;
-//
-//		try {
-//			Connection conn = DriverManager.getConnection(URL, user, pass);
-//			String sql = "SELECT title, description FROM film WHERE title LIKE ? OR description LIKE ?";
-//			PreparedStatement stmt = conn.prepareStatement(sql);
-//			keyword = "%" + keyword + "%";
-//			stmt.setString(1, keyword);
-//			stmt.setString(2, keyword);
-//			ResultSet filmResult = stmt.executeQuery();
-//			if (filmResult.next()) {
-//				film = new Film(); // Create the object
-//				film.setTitle(filmResult.getString(1));
-//				film.setDescription(filmResult.getString(2));
-//
-//			}
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		return film;
-//
-//	}
 
 	@Override
 	public Film findFilmByKeyword(String keyword) {
@@ -95,7 +72,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			stmt.setString(1, keyword);
 			stmt.setString(2, keyword);
 			ResultSet filmResult = stmt.executeQuery();
-			if (filmResult.next()) {
+			while (filmResult.next()) {
 				film = new Film(); // Create the object
 
 				film.setId(filmResult.getInt(1));
@@ -110,7 +87,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				film.setReplacementCost(filmResult.getInt(10));
 				film.setRating(filmResult.getString(11));
 				film.setSpecialFeatures(filmResult.getString(12));
-//				film.setActors(findActorsByFilmId(filmId));
+				film.setActors(findActorsByFilmId(film.getId()));
 
 			}
 			stmt.close();
@@ -120,8 +97,6 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		catch (SQLException e) {
 			e.printStackTrace();
 		}
-
-		
 		
 		return film;
 		

@@ -37,6 +37,7 @@ public class FilmQueryApp {
 			System.out.println("Menu:");
 			System.out.println("1. Look up a film by its id");
 			System.out.println("2. Look up a film by a search keyword.");
+			System.out.println("3. Exit");
 			System.out.print("Enter your choice: ");
 			int choice = input.nextInt();
 
@@ -63,9 +64,9 @@ public class FilmQueryApp {
 					System.out.println();
 					System.out.println("....FILM IS NOT FOUND....\n");
 				}else {
-				printFilm(filmByKeyword);
+					
+					printFilm(filmByKeyword);
 				}
-				
 				
 				break;
 
@@ -78,20 +79,6 @@ public class FilmQueryApp {
 
 		}
 	}
-
-//	  List<Actor> filmList = db.findActorsByFilmId(i);
-//	  System.out.println(filmList);
-
-		// do - while loop
-		// print menu
-		// Get user choice
-		// call and get method to get data
-		// print it out nicely
-		// Display results; if film not found, say so
-
-	
-	
-
 	 
 	 public void printFilm(Film film) {
 		 
